@@ -41,3 +41,5 @@ ADD --chown=${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} https://github.com/g
 RUN --mount=type=bind,source=/,target=/builder/root,from=builder \
     cp -f /builder/root/usr/irissys/iris.cpf /usr/irissys/iris.cpf && \
     python3 /home/irisowner/dev/copy-data.py -c /usr/irissys/iris.cpf -d /builder/root/
+
+COPY --chown=irisowner my-wsgi-app /opt/irisapp/my-wsgi-app
